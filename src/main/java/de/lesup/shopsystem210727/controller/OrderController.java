@@ -4,10 +4,7 @@ import de.lesup.shopsystem210727.model.Order;
 import de.lesup.shopsystem210727.model.Product;
 import de.lesup.shopsystem210727.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +28,10 @@ public class OrderController {
     public Order createNewOrder() {
     return orderService.order(new ArrayList<>());
     }
-    @PostMapping("/order")
-    public Order createNewOrder() {
-        return a.order(new ArrayList<>());
+    @PostMapping("/addorder")
+    public Order addProductToOrder(@RequestBody Product product, Order order) {
+        orderService.addProductToOrder(product, order);
+        return order;
     }
 
 }

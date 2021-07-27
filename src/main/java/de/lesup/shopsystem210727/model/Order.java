@@ -6,6 +6,8 @@ import java.util.Objects;
 public class Order {
     private String orderId;
 
+    private List<Product> productList;
+
     @Override
     public String toString() {
         return "Order{" +
@@ -42,8 +44,6 @@ public class Order {
     public void setProductList(List<Product> productList) {
         this.productList = productList;
     }
-
-    private List<Product> productList;
 
     public Order(String orderId, List<Product> productList) {
         this.orderId = orderId;

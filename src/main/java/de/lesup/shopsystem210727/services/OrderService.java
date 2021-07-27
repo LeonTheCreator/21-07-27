@@ -29,4 +29,9 @@ public class OrderService {
     public List<Product> listAllProducts() {
         return productDB.getListOfProducts();
     }
+
+    public void addProductToOrder(Product product, Order order) {
+        order.getProductList().add(product);
+
+    }
 }
