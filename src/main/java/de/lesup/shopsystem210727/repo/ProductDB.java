@@ -2,8 +2,11 @@ package de.lesup.shopsystem210727.repo;
 
 import de.lesup.shopsystem210727.model.Product;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.UUID;
+
+@Resource
 
 public class ProductDB {
     private List<Product> productList;
@@ -19,6 +22,11 @@ public class ProductDB {
         String id = UUID.randomUUID().toString();
         Product newProduct = new Product(id, newProductName);
         productList.add(newProduct);
+
+    }
+
+    public List<Product> getListOfProducts() {
+        return productList;
 
     }
 }
