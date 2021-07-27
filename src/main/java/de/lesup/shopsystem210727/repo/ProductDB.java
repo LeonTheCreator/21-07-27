@@ -1,12 +1,14 @@
 package de.lesup.shopsystem210727.repo;
 
 import de.lesup.shopsystem210727.model.Product;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.UUID;
 
-@Resource
+
+@Repository
 
 public class ProductDB {
     private List<Product> productList;

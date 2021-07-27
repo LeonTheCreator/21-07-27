@@ -14,7 +14,7 @@ public class OrderService {
     private final ProductDB productDB;
     private final OrderDB orderDB;
 
-    @Autowired
+@Autowired
 
     public OrderService(ProductDB productDB, OrderDB orderDB) {
         this.productDB = productDB;
