@@ -22,12 +22,21 @@ public class ProductDB {
         productList = List.of(productVar1, productVar2);
     }
 
-    public Product addProduct(String newProductName){
+    public Product addSingleProduct(String newProductName){
         String id = UUID.randomUUID().toString();
         Product newProduct = new Product(id, newProductName);
         productList.add(newProduct);
         return newProduct;
     }
+/*
+    public List<Product> addListOfProduct(List<String> listOfProductNames){
+        String id = UUID.randomUUID().toString();
+        Product newProduct = new Product(id, newProductName);
+        productList.add(newProduct);
+        return newProduct;
+    }
+
+ */
 
     public List<Product> getListOfProducts() {
         return productList;

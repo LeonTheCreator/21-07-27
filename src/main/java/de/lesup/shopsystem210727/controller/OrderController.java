@@ -45,7 +45,7 @@ public class OrderController {
 
     @PutMapping("{orderId}")
     public Order addProductToOrder(@PathVariable String orderId, @RequestBody Product product) {
-        Order order = orderService.addProductToOrder(product, orderId).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        Order order = orderService.checkOrder(orderId).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
         order.getProductList().add(product);
         return order;
     }

@@ -31,7 +31,7 @@ public class OrderService {
         return productDB.getListOfProducts();
     }
 
-    public Optional<Order> addProductToOrder(Product product, String orderId) {
+    public Optional<Order> checkOrder(String orderId) {
         return orderDB.getOrderById(orderId);
     }
 
