@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class Order {
-    private String orderId;
 
+    private String orderId;
     private List<Product> productList;
 
     @Override

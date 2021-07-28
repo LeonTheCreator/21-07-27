@@ -3,6 +3,7 @@ package de.lesup.shopsystem210727.model;
 import java.util.Objects;
 
 public class Product {
+
     private String productId;
     private String productName;
 

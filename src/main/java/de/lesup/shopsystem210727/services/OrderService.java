@@ -5,21 +5,22 @@ import de.lesup.shopsystem210727.model.Product;
 import de.lesup.shopsystem210727.repo.OrderDB;
 import de.lesup.shopsystem210727.repo.ProductDB;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-@Service
+import java.util.Optional;
 
+@Service
 public class OrderService {
     private final ProductDB productDB;
     private final OrderDB orderDB;
 
-@Autowired
-
+    @Autowired
     public OrderService(ProductDB productDB, OrderDB orderDB) {
         this.productDB = productDB;
         this.orderDB = orderDB;
-
     }
 
     public Order order(List<Product> orderedProducts){
@@ -30,8 +31,24 @@ public class OrderService {
         return productDB.getListOfProducts();
     }
 
-    public void addProductToOrder(Product product, Order order) {
-        order.getProductList().add(product);
+    public Optional<Order> addProductToOrder(Product product, String orderId) {
+        return orderDB.getOrderById(orderId);
+    }
 
+    public Optional<Order> getOrderById(String id){
+        for (Order order: orderDB.listOrders()) {
+            if (order.getOrderId().equals(id)){
+                return Optional.of(order);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public List<Order> listAllOrders() {
+        return orderDB.listOrders();
+    }
+
+    public Optional<Product> getProductByName(String name) {
+        return productDB.getProductByName(name);
     }
 }
